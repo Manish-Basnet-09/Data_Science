@@ -1,0 +1,12 @@
+student_id,name,gender,score,study_hours
+1,Alice,F,85,10
+2,Bob,M,92,8
+3,Charlie,Male,"78%",12
+4,Diana,F,,15
+5,Ethan,M,65,5
+6,Fiona,Female,95,11
+7,George,M,-5,4
+5,Ethan,M,65,5
+8,Hannah,F,88,9
+9,Ian,Male,"62%",-2
+10,Jane,F,,14

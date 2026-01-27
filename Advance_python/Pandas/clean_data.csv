@@ -1,0 +1,9 @@
+OrderDate,Product,Price,Quantity,Region,Total Sales,Total_Sales
+2023-01-05,Laptop,100.0,2.0,North,200.0,200.0
+2023-01-07,Mouse,25.5,5.0,South,127.5,127.5
+2023-01-10,Keyboard,223.99875,3.0,North,671.99625,671.99625
+2023-01-12,Monitor,300.0,2.5,West,750.0,750.0
+2023-01-15,Webcam,45.99,1.0,East,45.99,45.99
+2023-01-18,Unknown,15.0,2.0,East,30.0,30.0
+2023-01-20,Laptop,1200.0,1.0,North,1200.0,1200.0
+2023-01-22,External HDD,80.0,4.0,USA,320.0,320.0

@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Sundar Joshi",
+        "age": 22,
+        "department": "Social Science",
+        "salary": 6000
+    },
+    {
+        "id": 2,
+        "name": "Sita Sharma",
+        "age": 25,
+        "department": "Engineer",
+        "salary": 5000
+    },
+    {
+        "id": 3,
+        "name": "Ram Karki",
+        "age": 30,
+        "department": "Front Desk",
+        "salary": 5000
+    }
+]

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title }}</title>
+    <style>
+        /* CSS for a clean, modern look */
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; padding: 40px; }
+        .card { background: white; width: 100%; max-width: 800px; margin: 0 auto; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); overflow: hidden; }
+       
+        /* Header Styling */
+        .header { background: #0d77e0; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .header h1 { margin: 0; font-size: 1.5rem; }
+        .date { font-size: 0.8rem; opacity: 0.8; }
+
+        /* Table Styling */
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; padding: 15px; background: #ecf0f1; color: #7f8c8d; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+        td { padding: 15px; border-bottom: 1px solid #eee; color: #333; }
+        tr:last-child td { border-bottom: none; }
+       
+        /* Priority Badge Logic */
+        .badge { padding: 5px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; color: white; }
+        .p-High { background-color: #e74c3c; }   /* Red */
+        .p-Medium { background-color: #f1c40f; color: #333; } /* Yellow */
+        .p-Low { background-color: #2ecc71; }    /* Green */
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <!-- Accessing top-level dictionary keys -->
+            <h1>{{ company_name }}</h1>
+            <span class="date">Updated: {{ generated_at }}</span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Task Name</th>
+                    <th>Owner</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Django Loop: Iterating over the list of dictionaries -->
+                {% for item in tasks %}
+                <tr>
+                    <td><strong>{{ item.id }}</strong></td>
+                    <td>{{ item.task }}</td>
+                    <td>{{ item.owner }}</td>
+                    <td>
+                        <!--
+                           Dynamic Class Assignment:
+                           We use the data itself ('High', 'Low') to complete the CSS class name.
+                           Example result: class="badge p-High"
+                        -->
+                        <span class="badge p-{{ item.priority }}">
+                            {{ item.priority }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+                {% for item in database_data %}
+                <tr>
+                    <td><strong>{{ item.name }}</strong></td>
+                    <td>{{ item.role }}</td>
+                    <td>{{ item.department }}</td>
+                    <td>{{ item.status }}</td>
+                    
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

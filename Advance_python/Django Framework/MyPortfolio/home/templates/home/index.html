@@ -1,0 +1,257 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Portfolio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: #eef2f7;
+    color: #1f2937;
+    scroll-behavior: smooth;
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: white;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+header h1 {
+    font-size: 42px;
+    letter-spacing: 1px;
+}
+
+.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;   /* KEY FIX */
+    border: 5px solid white;
+    margin-top: 20px;
+    transition: transform 0.4s;
+}
+.profile:hover {
+    transform: scale(1.08);
+}
+
+/* ===== NAV ===== */
+nav {
+    background: #111827;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    text-align: center;
+}
+
+nav a {
+    color: #e5e7eb;
+    text-decoration: none;
+    margin: 0 18px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #60a5fa;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    max-width: 1000px;
+    margin: auto;
+    padding: 70px 20px;
+    animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+    from {opacity:0; transform: translateY(30px);}
+    to {opacity:1; transform: translateY(0);}
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #111827;
+    font-size: 30px;
+}
+
+/* ===== SKILLS ===== */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.skill {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid #e5e7eb;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    background: #2563eb;
+    color: white;
+    transform: translateY(-4px);
+}
+
+/* ===== PROJECTS ===== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    transition: 0.35s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #1d4ed8;
+}
+
+/* ===== SOCIAL BUTTONS ===== */
+.social {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social a {
+    display: inline-block;
+    padding: 10px 18px;
+    margin: 8px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    background: #2563eb;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    background: #1d4ed8;
+    transform: scale(1.05);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #111827;
+    color: #9ca3af;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Manish Basnet</h1>
+    <h3 id="typing"></h3>
+    <img src="{% static 'images/myphoto.png' %}" class="profile">
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p style="text-align:center; font-size:18px;">
+        I am a Python & Data Science student who enjoys building web apps,
+        APIs, and data projects.
+    </p>
+</section>
+
+<section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+        <div class="skill">Python</div>
+        <div class="skill">Django</div>
+        <div class="skill">FastAPI</div>
+        <div class="skill">Pandas</div>
+        <div class="skill">NumPy</div>
+        <div class="skill">SQL</div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Projects</h2>
+
+    <div class="grid">
+        <div class="card">
+            <h3>Data Dashboard</h3>
+            <p>Data cleaning and visualization project.</p>
+        </div>
+
+        <div class="card">
+            <h3>Django Portfolio</h3>
+            <p>Responsive portfolio website.</p>
+        </div>
+
+        <div class="card">
+            <h3>FastAPI Backend</h3>
+            <p>REST API with database integration.</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+
+    <div class="social">
+        <a href="https://github.com/Enmessionate">GitHub</a>
+        <a href="https://www.linkedin.com/in/manish-basnet-2b71a73a9">LinkedIn</a>
+    </div>
+</section>
+
+<footer>
+    © 2026 Manish Basnet — Portfolio
+</footer>
+
+<script>
+const text = "Python Developer | Data Science Student";
+let i = 0;
+function type(){
+ if(i < text.length){
+  document.getElementById("typing").innerHTML += text.charAt(i);
+  i++;
+  setTimeout(type,60);
+ }
+}
+type();
+</script>
+
+</body>
+</html>

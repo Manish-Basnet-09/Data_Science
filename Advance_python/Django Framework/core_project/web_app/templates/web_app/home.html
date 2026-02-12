@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ page_title }}</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f7f6; padding: 30px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+       
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .btn-add { background: #007bff; color: white; text-decoration: none; padding: 10px 15px; border-radius: 5px; font-weight: bold; }
+        .btn-add:hover { background: #0056b3; }
+
+        table { width: 100%; border-collapse: collapse; }
+        th { text-align: left; background: #f8f9fa; padding: 12px; border-bottom: 2px solid #dee2e6; }
+        td { padding: 12px; border-bottom: 1px solid #dee2e6; }
+       
+        .badge { padding: 5px 10px; border-radius: 12px; font-size: 0.8em; }
+        .status-Active { background: #d4edda; color: #155724; }
+        .status-On-Leave { background: #fff3cd; color: #856404; } /* Matches 'On Leave' with generic CSS replacement */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{ page_title }}</h1>
+            <a href="{% url 'add_employee' %}" class="btn-add">+ Add New Staff</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Role</th>
+                    <th>Dept</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for staff in staff_list %}
+                <tr>
+                    <td>{{ staff.name }}</td>
+                    <td>{{ staff.role }}</td>
+                    <td>{{ staff.department }}</td>
+                    <td>
+                        <!-- Using 'slugify' to turn "On Leave" into "on-leave" for CSS -->
+                        <span class="badge status-{{ staff.status|slugify|title }}">
+                            {{ staff.status }}
+                        </span>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4" style="text-align:center; padding: 20px;">No employees found in database.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
